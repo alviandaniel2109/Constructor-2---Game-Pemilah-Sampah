@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Game</name>
+    <events>
+        <variable constant="0" name="score" sid="983302548157746" static="0" type="number">0</variable>
+        <variable constant="0" name="timer" sid="398135482861032" static="0" type="number">30</variable>
+        <event-block sid="941072627103224">
+            <conditions>
+                <condition id="4" name="Is touching object" sid="344342197177314" type="Touch">
+                    <param id="0" name="Object">menu</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="707915150821763" type="System">
+                    <param id="0" name="Layout">Layout 1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="294705766343232">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="850343709787774" type="System" />
+            </conditions>
+            <actions>
+                <action id="-21" name="Reset global variables" sid="683786760790456" type="System" />
+                <action id="0" name="Set text" sid="653386681500289" type="Timertext">
+                    <param id="0" name="Text">&quot;:  &quot; &amp; timer</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="415226117003913">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="409831114811569" type="System">
+                    <param id="0" name="Interval (seconds)">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-11" name="Subtract from" sid="237246089452203" type="System">
+                    <param id="0" name="Variable">timer</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Set text" sid="976321153780990" type="Timertext">
+                    <param id="0" name="Text">&quot;:  &quot; &amp; timer</param>
+                </action>
+                <action id="0" name="Set text" sid="524000475763763" type="Score">
+                    <param id="0" name="Text">&quot;Score :&quot; &amp; score</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="633411800603922">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="281488613495379" type="System">
+                    <param id="0" name="Variable">timer</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="895165689310365" type="System">
+                    <param id="0" name="Layout">End</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="712744002124753">
+            <conditions>
+                <condition id="-18" name="On created" sid="115667078134397" type="NonOrganik_GelasPastik" />
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="636494217317172" type="NonOrganik_GelasPastik">
+                    <param id="0" name="Angle">90</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="192809025098259">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="567780882774186" type="System">
+                    <param id="0" name="Interval (seconds)">14</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="417347500362351" type="System">
+                    <param id="0" name="Object to create">NonOrganik_GelasPastik</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">450</param>
+                    <param id="3" name="Y">-50</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="675207838892814">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="373841816327078" type="BoxOrganik">
+                    <param id="0" name="Object">Organik_Ayam</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="416406374188894" type="System">
+                    <param id="0" name="Variable">score</param>
+                    <param id="1" name="Value">100</param>
+                </action>
+                <action id="-9" name="Destroy" sid="557716049098826" type="Organik_Ayam" />
+            </actions>
+        </event-block>
+        <event-block sid="330451739953635">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="813990862203697" type="BoxOrganik">
+                    <param id="0" name="Object">Organik_Ikan</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="632260854786262" type="System">
+                    <param id="0" name="Variable">score</param>
+                    <param id="1" name="Value">100</param>
+                </action>
+                <action id="-9" name="Destroy" sid="775403654558689" type="Organik_Ikan" />
+            </actions>
+        </event-block>
+        <event-block sid="382626699066577">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="480616144502716" type="BoxOrganik">
+                    <param id="0" name="Object">Organik_Apple</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="744351763048020" type="System">
+                    <param id="0" name="Variable">score</param>
+                    <param id="1" name="Value">100</param>
+                </action>
+                <action id="-9" name="Destroy" sid="469926402614993" type="Organik_Apple" />
+            </actions>
+        </event-block>
+        <event-block sid="652729325431736">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="985548688706477" type="BoxNonOrganik">
+                    <param id="0" name="Object">NonOrganik_GelasPastik</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="326556365116064" type="System">
+                    <param id="0" name="Variable">score</param>
+                    <param id="1" name="Value">100</param>
+                </action>
+                <action id="-9" name="Destroy" sid="104775294703857" type="NonOrganik_GelasPastik" />
+            </actions>
+        </event-block>
+        <event-block sid="702739596285057">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="564265472739697" type="BoxNonOrganik">
+                    <param id="0" name="Object">NonOrganik_Botol</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="784593644033811" type="System">
+                    <param id="0" name="Variable">score</param>
+                    <param id="1" name="Value">100</param>
+                </action>
+                <action id="-9" name="Destroy" sid="294142390386556" type="NonOrganik_Botol" />
+            </actions>
+        </event-block>
+        <event-block sid="103793456813492">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="359763287623642" type="BoxNonOrganik">
+                    <param id="0" name="Object">NonOrganik_Plastik</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="462305244614135" type="System">
+                    <param id="0" name="Variable">score</param>
+                    <param id="1" name="Value">100</param>
+                </action>
+                <action id="-9" name="Destroy" sid="256075718604833" type="NonOrganik_Plastik" />
+            </actions>
+        </event-block>
+        <event-block sid="832887351496218">
+            <conditions>
+                <condition id="-18" name="On created" sid="830777808616276" type="Organik_Ayam" />
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="147612340126753" type="Organik_Ayam">
+                    <param id="0" name="Angle">90</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="485322413976130">
+            <conditions>
+                <condition id="-18" name="On created" sid="565539392219241" type="NonOrganik_Plastik" />
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="872937521388079" type="NonOrganik_Plastik">
+                    <param id="0" name="Angle">90</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="851822724335336">
+            <conditions>
+                <condition id="-18" name="On created" sid="873566859002940" type="Organik_Apple" />
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="381933901101464" type="Organik_Apple">
+                    <param id="0" name="Angle">90</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="326673352699601">
+            <conditions>
+                <condition id="-18" name="On created" sid="498103224957896" type="NonOrganik_Botol" />
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="376343088815882" type="NonOrganik_Botol">
+                    <param id="0" name="Angle">90</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="498013556922266">
+            <conditions>
+                <condition id="-18" name="On created" sid="557910528931059" type="Organik_Ikan" />
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="937048555272756" type="Organik_Ikan">
+                    <param id="0" name="Angle">90</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="865160332848308">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="857183670880151" type="System">
+                    <param id="0" name="Interval (seconds)">5</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="950664324267966" type="System">
+                    <param id="0" name="Object to create">Organik_Ayam</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">500</param>
+                    <param id="3" name="Y">-50</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="360645386408228">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="476285023651501" type="System">
+                    <param id="0" name="Interval (seconds)">7</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="753841247570697" type="System">
+                    <param id="0" name="Object to create">Organik_Ikan</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">850</param>
+                    <param id="3" name="Y">-50</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="720076645639878">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="309165876920506" type="System">
+                    <param id="0" name="Interval (seconds)">6</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="457513697022345" type="System">
+                    <param id="0" name="Object to create">NonOrganik_Botol</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">900</param>
+                    <param id="3" name="Y">-50</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="915080969832599">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="505165454820412" type="System">
+                    <param id="0" name="Interval (seconds)">10</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="622621958263454" type="System">
+                    <param id="0" name="Object to create">NonOrganik_Plastik</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">700</param>
+                    <param id="3" name="Y">-50</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="719413728322220">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="783132378637552" type="System">
+                    <param id="0" name="Interval (seconds)">12</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="988504242995039" type="System">
+                    <param id="0" name="Object to create">Organik_Apple</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">400</param>
+                    <param id="3" name="Y">-50</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
